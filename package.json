@@ -1,0 +1,27 @@
+{
+  "name": "peer-lend",
+  "version": "0.0.1",
+  "description": "peer to peer lending application",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "p2p",
+    "lend"
+  ],
+  "author": "vinodgnp",
+  "license": "BSD",
+  "dependencies": {
+    "ejs": "^0.8.8",
+    "emailjs": "^0.3.16",
+    "express": "^3.4.8",
+    "logfmt": "^0.18.1",
+    "moment": "^2.5.1",
+    "mongodb": "^2.0.52",
+    "mongoose": "^4.3.3"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

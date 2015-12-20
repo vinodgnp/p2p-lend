@@ -1,0 +1,38 @@
+<div class="container" >
+    <div class="row">
+      <div class="span9">
+  		
+		<h2>Payments Overview</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+            <th>S.No</th>
+			      <th class="number">Account Number</th>
+  		      <th class="number">Lent Amount</th>
+            <th>Payment Date</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="payment in payments;">
+              <td class="number">{{$index+1}}</td>
+			        <td class="number">{{getAccountNumber(payment.loan)}}</td>
+			        <td class="number">{{payment.amount}}</td>
+              <td >{{payment.date | date:'dd-MM-yyyy'}}</td>
+            </tr>
+          </tbody>
+        </table>
+		<div class="box">
+			<h2>New payment</h2>
+			<select class="span4" ng-model='payment.loan'>
+              <option ng-repeat="loan in loans" value="{{loan._id}}">
+              {{loan.accountNumber}}[{{getBorrowerName(loan.borrower)}},{{loan.amount}},{{loan.startDate | date:'dd-MM-yyyy'}}]</option>
+      </select>  
+      <input type="text" ng-model="payment.amount" placeholder="..amount" class="span2" />
+      <input type="text" ng-model="payment.date" placeholder="..date(dd-mm-yyyy)" class="span2" />
+			<br/>
+      <button class="btn" ng-click="addPayment();"><i class="icon-plus"></i> Add Payment</button>
+      
+    </div>
+
+
+  </div>
+</div>

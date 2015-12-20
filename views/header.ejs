@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="loanApp">
+<head>
+  <meta charset="utf-8">
+  <title>Peer Lend</title>
+    <link rel="stylesheet" href="/css/default.css"/>
+    <link rel="stylesheet" href="/css/datepicker.css"/>
+  
+      <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      
+    </style> 
+</head>
+<body>
+  
+    <div class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavCtrl">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">P2P lending</a>
+      
+          <div class="nav-collapse collapse"  >
+            <ul class="nav">
+              <li ng-class="getMenuClass('/loan')" ><a href="#/loan">Loan</a></li>
+              <li ng-class="getMenuClass('/payment')"><a href="#/payment">Payment</a></li>
+              <li ng-class="getMenuClass('/borrower')"><a href="#/borrower">Borrower</a></li>
+            </ul>
+          </div>
+      
+      
+        </div>
+      </div>
+    </div>

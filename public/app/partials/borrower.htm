@@ -1,0 +1,48 @@
+<div class="container" >
+    <div class="row">
+      <div class="span9">
+     	<h2>Borrowers Overview</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="number">S.No</th>
+			        <th>Borrower</th>
+			        <th>Email</th>
+              <th>Outstanding</th>
+              <th></th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="borrower in borrowers;">
+              <td class="number">{{$index+1}}</td>
+      			  <td>{{borrower.name.first}} {{borrower.name.last}}</td>
+      			  <td>{{borrower.email}}</td>
+               <td>{{getOutstandingAmountForBorrower(borrower._id)}}</td>
+              <td>
+                <a ng-click="deleteBorrower($index);"><i class="icon-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+		<div class="box">
+			<h2>New borrower</h2>
+			<input type="text" ng-model="borrower.name.first" placeholder="..firstName" class="span2" />
+      <input type="text" ng-model="borrower.name.last" placeholder="..lastName" class="span2" />
+			<input type="text" ng-model="borrower.email" placeholder="..email" class="span2" />
+     		<br/>
+          <button class="btn" ng-click="addborrower();"><i class="icon-plus"></i> Add borrower</button>
+        </div>
+		<!--		
+		<div class="store" ng-show="storageSupport">
+          <p>
+            <button class="btn btn-success" ng-click="save();"><i class="icon-hdd icon-white"></i> Save</button>
+            <button class="btn btn-danger" ng-click="clear();"><i class="icon-trash icon-white"></i> Erase</button>
+          </p>
+          <p>Important: You data is stored locally on this very device only.</p>
+        </div>
+		
+		</div>
+  -->
+
+        </div>
+  </div>

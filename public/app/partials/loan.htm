@@ -1,0 +1,53 @@
+<div class="container" >
+    <div class="row">
+      <div class="span9">
+        <h2>Overall Loans</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="number">S.No</th>
+      			  <th class="number">BorrowerName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th class="number">Loan.No</th>
+      			  <th class="date" >DateLent&nbsp;&nbsp;&nbsp;</th>
+      			  <th class="number">Lent Amount</th>
+      			  <th class="number">Total Repayment</th>
+      			  <th class="number">Total Outstanding</th>
+      			  <th >Status</th>
+      			  <th >Note</th>
+      			  <th class="number"></th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="loan in loans;">
+              <td class="number">{{$index+1}}</td>
+			        <td>{{getBorrowerName(loan.borrower)}}</td>
+              <td class="number">{{loan.accountNumber}}</td>
+			        <td class="number span4">{{loan.startDate | date:'dd-MM-yyyy'}}</td>
+              <td class="number">{{loan.amount}}</td>
+			        <td class="number">{{getRepaymentAmountForLoan(loan._id)}}</td>
+              <td class="number">{{getOutstandingAmountForLoan(loan._id)}}</td>
+			        <td>{{getLoanStatus(loan._id)}}</td>
+              <td>{{loan.notes}}</td>
+			        <td><a ng-click="deleteLoan($index);"><i class="icon-trash"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+		<button class="btn" ng-click="exportLoans();"><i class="icon-hdd"></i> Export Loan</button>
+		
+		<div class="box">
+			<h2>New loan detail</h2>
+         	 <select class="span2" ng-model='loan.borrower'>
+             <option></option>
+             <option ng-repeat="borrower in borrowers" value="{{borrower._id}}">
+              {{borrower.name.first}} {{borrower.name.last}}</option>
+           </select>
+			     <input type="text" ng-model="loan.accountNumber" placeholder="..account Number" class="span2" />
+			     <input type="text" ng-model="loan.amount" placeholder="..amount" class="span2" />
+			     <input type="text" ng-model="loan.startDate" placeholder="..date(dd-MM-yyyy)" class="span2" />
+           <input type="text" ng-model="loan.notes" placeholder="..notes" class="span2" />
+   		    <br/>
+          <button class="btn" ng-click="addLoan();"><i class="icon-plus"></i> Add Loan</button>
+        
+
+        </div>
+      
+  </div>

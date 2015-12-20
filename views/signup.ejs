@@ -1,0 +1,77 @@
+<% include header.ejs %>
+
+<style>
+#account-form-container {
+width: 460px;
+margin: 100px auto;
+}
+</style>
+<!-- preset form values if we receive a userdata object //-->
+  <!-- store the userId on the client side in a hidden input field //-->
+  <input type="hidden" id="userId">
+  <div id="account-form-container">
+    <form method="post" id="account-form" class="form-horizontal well span6">
+      <h1>Signup</h1>
+      <p id="sub1" class="subheading">Please enter the following details</p>
+      <hr>
+      <fieldset>
+        <div id="firstName-cg" class="control-group">
+          <label for="firstName-tf" class="control-label">First name</label>
+          <div class="controls">
+            <input id="firstName-tf" type="text" name="firstName" class="input-xlarge">
+          </div>
+        </div>
+        <div id="lastName-cg" class="control-group">
+          <label for="lastName-tf" class="control-label">Last name</label>
+          <div class="controls">
+            <input id="lastName-tf" type="text" name="lastName" class="input-xlarge">
+          </div>
+        </div>
+
+        <div id="email-cg" class="control-group">
+          <label for="email-tf" class="control-label">Email</label>
+          <div class="controls">
+            <input id="email-tf" type="text" name="email" class="input-xlarge">
+          </div>
+        </div>
+        <hr>
+	    <div id="pass-cg" class="control-group">
+          <label for="pass-tf" class="control-label">Password</label>
+          <div class="controls">
+            <input id="pass-tf" type="password" name="pass" value="" class="input-xlarge">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="account-form-btn1" class="btn">Cancel</button>
+          <button type="submit" id="account-form-btn2" class="btn btn btn-primary">Submit</button>
+        </div> 
+      </fieldset>
+    </form>
+  </div>
+  <!-- display form errors in a custom modal window //-->
+  <div class="modal-form-errors modal hide fade">
+    <div class="modal-header">
+      <button data-dismiss="modal" class="close">x</button>
+      <h3>Whoops!</h3>
+    </div>
+    <div class="modal-body">
+      <p class="subheading">It looks like there was a problem.</p>
+      <ul></ul>
+    </div>
+    <div class="modal-footer">
+      <button data-dismiss="modal" class="btn btn-warning">OK</button>
+    </div>
+  </div>
+  <div class="modal-alert modal hide fade">
+    <div class="modal-header">
+      <button data-dismiss="modal" class="close">x</button>
+      <h3></h3>
+    </div>
+    <div class="modal-body">
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <button data-dismiss="modal" id="ok" class="btn btn-warning">OK</button>
+    </div>
+  </div>
+<% include footer.ejs %>
